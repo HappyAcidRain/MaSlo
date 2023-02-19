@@ -42,6 +42,19 @@ def inline_handler_dude(call):
 
         # вопрос 1
         if call.data == 'que1':
+
+            # подключаемся к БД
+            connect = sqlite3.connect("data.db")
+            cursor = connect.cursor()
+
+            # выборка номера вопроса
+            id_ = [call.message.chat.id]
+            cursor.execute("UPDATE progress SET question = '1' WHERE id = (?)", id_)
+            connect.commit()
+
+            # закрываем БД
+            connect.close()
+
             # создаем добавляем и клавиатуру
             markup = types.InlineKeyboardMarkup(row_width=1)
             item_1 = types.InlineKeyboardButton('Масло', callback_data='correct')
