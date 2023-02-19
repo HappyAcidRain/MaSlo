@@ -387,7 +387,7 @@ def inline_handler_dude(call):
             connect.close()
 
             bot.send_message(call.message.chat.id, "Спасибо за участие в викторине, вы молодцы!")
-            bot.send_message(call.message.chat.id, "Если хотите сыграть еще раз, напишите /start")
+            bot.send_message(call.message.chat.id, "Если хотите сыграть еще раз, нажмите /start")
 
 
 # для постоянной работы
