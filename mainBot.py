@@ -336,6 +336,11 @@ def inline_handler_dude(call):
             bot.send_message(call.message.chat.id,
                              "к сожалению, это неправильный ответ", reply_markup=markup)
 
+            # обнуляем перменные
+            del question
+            del question_int
+            del question_str
+
         if call.data == 'correct':
 
             # подключаемся к БД
@@ -371,6 +376,11 @@ def inline_handler_dude(call):
 
             bot.send_message(call.message.chat.id,
                              "Это правильный ответ!", reply_markup=markup)
+
+            # обнуляем перменные
+            del question
+            del question_int
+            del question_str
 
         if call.data == 'end':
 
